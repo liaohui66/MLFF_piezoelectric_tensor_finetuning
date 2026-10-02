@@ -18,6 +18,7 @@ an evaluated comparator and is not part of this selected chain.
 | `physical_polarization_training_manifest.json` | Physical-polarization head training metadata. |
 | `model_manifest.json` | File hashes, model composition, and selected evaluation metrics. |
 | `LICENSE` | Academic Software License terms for this model bundle. |
+| `training_sources/` | Training/fine-tuning entry points, architecture code, data builders, and their local Python dependencies. |
 
 The MH-1 foundation model itself is intentionally not mirrored here. Run
 `./download_mh1_backbone.sh` to fetch the exact upstream artifact after
@@ -51,14 +52,30 @@ pre-specified comparisons in §63. This set is not a new external test set.
 Only aggregate metrics are included here; test structures, labels, and
 per-structure predictions are not included.
 
-## Reproducibility limits
+## Training source and reproducibility
 
-This release contains the learned checkpoints, their manifests, and the exact
-external MH-1 dependency record. It does not yet provide a standalone
-one-command inference CLI for arbitrary ASE structures. The original replay
-scripts in the research workspace depend on that workspace's datasets,
-feature caches, and source modules. A portable inference CLI should be added
-before describing this repository as a turnkey predictor.
+Training entry points and the local modules they import are now included in
+[`training_sources/`](training_sources/README.md). Per-file SHA-256 hashes are
+recorded in `training_sources/source_manifest.json`. The selected MH-1 Γ head was
+trained with `foundation_displacement_train.py`; the BEC source model was
+fine-tuned with `finetune_uiu_bec_jarvis.py`; the physical-polarization head
+was trained with `train_uiu_physical_polarization_response.py`. The folder also
+contains the feature-extraction code, architecture definitions, and shared
+data-building helpers those scripts import.
+
+The source files are snapshots from the research workspace. They expect the
+original MACE/e3nn/PyTorch environment and project-relative `results/` data,
+splits, and feature caches. Those datasets and caches are not included, so the
+scripts cannot reproduce training from this Git checkout alone. In particular,
+the MH-1 foundation checkpoint must be downloaded separately with
+`./download_mh1_backbone.sh` after reviewing its license. See each training
+manifest and `training_sources/README.md` for recorded settings and missing
+inputs.
+
+The source includes helper/evaluation code needed by the training imports, but
+does not include the locked-test structures or labels. The scripts have
+historical workspace paths and should be treated as research reproduction
+code, not as a portable one-command training or inference interface.
 
 ## License and attribution
 
@@ -71,5 +88,7 @@ and the [upstream MACE foundation models](https://github.com/ACEsuit/mace-founda
 for the current terms and attribution. The upstream weight file is not
 redistributed in this repository.
 
-The project's training and inference source code is not included in this
-bundle and is not licensed by this model-directory license.
+The Python source snapshots under `training_sources/` are included for
+reproducibility. This ASL text does not declare a separate license for those
+project source files; review third-party dependency terms before reuse. The
+MH-1-derived model chain remains subject to the upstream MH-1 license.

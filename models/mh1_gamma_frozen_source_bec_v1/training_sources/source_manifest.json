@@ -1,0 +1,91 @@
+{
+  "description": "Training and architecture source snapshots copied from the MACELES-MPtrj-uiu research workspace.",
+  "copied_on": "2026-10-02",
+  "python_files": [
+    {
+      "file": "build_uiu_bec_ionic_piezo.py",
+      "bytes": 16653,
+      "sha256": "e8c7fdbc1be4a109302931c784af539496dc9a2dac6cd384e3bca1c23b9b121b"
+    },
+    {
+      "file": "build_uiu_bec_ionic_piezo_jarvis.py",
+      "bytes": 11763,
+      "sha256": "7a979fa611256ce22963d012957a267a82c0ef0665dff41a4b5903d43924126f"
+    },
+    {
+      "file": "evaluate_displacement_increment_locked_test.py",
+      "bytes": 6808,
+      "sha256": "e7c97813e1f0f2e5694a9ba964852f6086aa04c720efbbc75851935fd922647a"
+    },
+    {
+      "file": "finetune_uiu_backbone_displacement.py",
+      "bytes": 50041,
+      "sha256": "f0c268d470ffde82cff0f36c87ec137726cfb662e9e7ce23cdb01737a86488bb"
+    },
+    {
+      "file": "finetune_uiu_bec_jarvis.py",
+      "bytes": 26879,
+      "sha256": "96d92e0996e0ce4781967fd734a92fd26df1f616737bde460841ff805aa21036"
+    },
+    {
+      "file": "foundation_displacement_extract.py",
+      "bytes": 15227,
+      "sha256": "42af8dfc9b1222b2fe848c1a134b70445f9c441dbe69b9d8f63a5ad9d55d8401"
+    },
+    {
+      "file": "foundation_displacement_finetune.py",
+      "bytes": 36116,
+      "sha256": "824080e22858ee032fff378e2e008e955586d1e96cb345bd2e8aa62c1b6ebeab"
+    },
+    {
+      "file": "foundation_displacement_train.py",
+      "bytes": 27747,
+      "sha256": "b68f0acd8162a42b051fce81c3dca781bcedfb38c5dbd1b5c675f91717b93fc5"
+    },
+    {
+      "file": "piezo_irreps.py",
+      "bytes": 3737,
+      "sha256": "3afbc17790360806962b10c9642fe4d46f1da682d8b42e945390fd97eac3cf45"
+    },
+    {
+      "file": "strain_response_irreps.py",
+      "bytes": 2433,
+      "sha256": "79733554fdc7147eacbf3fbb534a42e3d9a34bc6577fd1bf9c12c756fb8cf049"
+    },
+    {
+      "file": "train_uiu_internal_strain_head.py",
+      "bytes": 107021,
+      "sha256": "2092c6a920f9a8f0ccc3697683236ce48fed55abcdc4d22187665e505370a01a"
+    },
+    {
+      "file": "train_uiu_physical_polarization_response.py",
+      "bytes": 24893,
+      "sha256": "a7c1c035eaf2277e92dd84db7abad60db5c7cbdf2211f4716a45e8e1a3c351b5"
+    },
+    {
+      "file": "uiu_collective_attention_displacement.py",
+      "bytes": 50743,
+      "sha256": "d6a54a3aa217c6519c1d0330662bd9799832a3b05f1318fcbc68d41dac24445c"
+    },
+    {
+      "file": "uiu_differentiable_polarization.py",
+      "bytes": 7450,
+      "sha256": "43fa427db8f59b9a5bef81c0432cfae9b45c19a0c30f549d7c1ca887cd3e1fa0"
+    },
+    {
+      "file": "uiu_equivariant_piezo_model.py",
+      "bytes": 32764,
+      "sha256": "473e87197cdf1e60d95a7d2f219533237c258c99329d228a80a00a667307fe69"
+    },
+    {
+      "file": "uiu_internal_strain_feature_adapter.py",
+      "bytes": 6162,
+      "sha256": "bf09d553852a48685756743092c89c55dd4683af42048af5d1d237ded47e0ff8"
+    },
+    {
+      "file": "uiu_internal_strain_model.py",
+      "bytes": 7895,
+      "sha256": "12fb9507356d3ec52e92b25ac2298f121bd750a9e11c91e4179a58ba6060f921"
+    }
+  ]
+}

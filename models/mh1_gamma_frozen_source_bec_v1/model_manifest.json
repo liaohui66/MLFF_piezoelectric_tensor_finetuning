@@ -63,5 +63,7 @@
       "jarvis_only_bec_calibration_eijmax_mae": 0.22148685150170022
     }
   },
+  "training_sources": "training_sources/README.md",
+  "training_source_hashes": "training_sources/source_manifest.json",
   "upstream_dependency": "MACE-MH-1 under ASL; see external/mh1_backbone.json"
 }
