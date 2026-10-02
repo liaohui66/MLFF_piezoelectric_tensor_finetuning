@@ -1,0 +1,67 @@
+{
+  "model_id": "mh1_gamma_frozen_source_bec_v1",
+  "selection": {
+    "source": "MACELES-MPtrj-uiu Iteration.md, section 63",
+    "selected_chain": "MH-1 pre-product identity-projection epoch-205 Gamma + frozen-source BEC",
+    "selection_metric": "unified ionic eijmax MAE on the fixed safe5 comparison set",
+    "calibrated_bec_is_selected": false
+  },
+  "components": {
+    "gamma_head": {
+      "file": "weights/gamma_head/mh1_gamma_epoch205.pt",
+      "sha256": "156b034f755743b62bc2db45f90d33cb9f17d09e5c80f40b519a61c709d7be54",
+      "bytes": 4967938,
+      "best_epoch": 205,
+      "seed": 123,
+      "training_structures": 1864,
+      "validation_structures": 189,
+      "feature_stage": "pre_product",
+      "feature_irreps": "512x0e+512x1o per final interaction block",
+      "projection": "512-channel, identity initialized, no input RMS normalization",
+      "trainable_parameters": 1209345,
+      "backbone": "external/mh1_backbone.json"
+    },
+    "frozen_source_bec": {
+      "mace_model": {
+        "file": "weights/bec_source/mace_uiu_jarvis_bec_ft_best.model",
+        "sha256": "748f8ec3f6ad35d25ac666aa23ec445744206aa761f52ab3988e87aba2b5dd03",
+        "bytes": 36394138,
+        "training_source": "MACELES-OMat24 checkpoint fine-tuned on JARVIS BEC targets",
+        "training_seed": 123,
+        "trainable_parameters": 18048
+      },
+      "physical_polarization_head": {
+        "file": "weights/bec_source/physical_polarization_head.pt",
+        "sha256": "6da5b07eb7e9768f50a5200c2f7ee53b415cb3b7f7d22d0f682078318f30b651",
+        "bytes": 865413,
+        "trainable_parameters": 211042
+      },
+      "bec_mapping": "identity mapping of the frozen-source BEC prediction with ASR projection"
+    }
+  },
+  "contraction": {
+    "formula": "ionic[i,j] = 16.0217663 / volume_A3 * sum_a,k(BEC[a,i,k] * Gamma[a,k,j])",
+    "bec_units": "e",
+    "gamma_units": "angstrom per unit strain",
+    "ionic_units": "C/m^2",
+    "strain_modes": ["xx", "yy", "zz", "yz", "xz", "xy"],
+    "feature_strain_step": 0.005
+  },
+  "evaluation": {
+    "fixed_safe5_test_structures": 208,
+    "test_split_sha256": "94026e6394b16120ecfe1f30c2fd4da4d43886695fb5f2256524f251e1a1cb88",
+    "test_was_used_in_prior_project_experiments": true,
+    "external_test_claim": false,
+    "frozen_source_bec_component_mae": 0.2394690041979169,
+    "frozen_source_bec_component_pearson": 0.9057571459319024,
+    "unified_ionic_component_mae": 0.06869437602590658,
+    "unified_ionic_component_pearson": 0.7366692804069079,
+    "unified_ionic_eijmax_mae": 0.21620904904571542,
+    "unified_ionic_eijmax_pearson": 0.786968197000135,
+    "comparison": {
+      "section41_lora_eijmax_mae": 0.25947365979407866,
+      "jarvis_only_bec_calibration_eijmax_mae": 0.22148685150170022
+    }
+  },
+  "upstream_dependency": "MACE-MH-1 under ASL; see external/mh1_backbone.json"
+}

@@ -1,0 +1,84 @@
+{
+  "objective": "single differentiable dipole -> BEC + proper static; ionic=BEC@du/dstrain; total=static+ionic",
+  "model": "results/uiu_regularized_modal_solver_grouped_resplit_v1/bec_finetune/MACELES-uiu-jarvis-bec-ft-best.model",
+  "split_dir": "results/uiu_regularized_modal_solver_grouped_resplit_v1/splits",
+  "dfpt_cache": "results/jarvis_dfpt_internal_response/jarvis_dfpt_internal_response.pt",
+  "quality_summary": "results/jarvis_dfpt_internal_response/quality_summary.tsv",
+  "splits": {
+    "train": 1719,
+    "valid": 189,
+    "test": 208
+  },
+  "rejected": {
+    "train": {
+      "missing_dfpt": 0,
+      "quality": 400,
+      "atom_mismatch": 0,
+      "missing_label": 0
+    },
+    "valid": {
+      "missing_dfpt": 0,
+      "quality": 56,
+      "atom_mismatch": 0,
+      "missing_label": 0
+    },
+    "test": {
+      "missing_dfpt": 0,
+      "quality": 51,
+      "atom_mismatch": 0,
+      "missing_label": 0
+    }
+  },
+  "target_scales": {
+    "bec": 1.328957200050354,
+    "static": 0.22315897047519684,
+    "ionic": 0.31982529163360596,
+    "total": 0.34245651960372925
+  },
+  "trainable_parameters": 211042,
+  "best_epoch": 59,
+  "best_valid_loss": 0.6660305474485669,
+  "proper_piezo": true,
+  "voigt_order": [
+    "xx",
+    "yy",
+    "zz",
+    "yz",
+    "xz",
+    "xy"
+  ],
+  "ionic_displacement": "DFT internal_displacement_dstrain in phase-1 training/evaluation",
+  "args": {
+    "model": "results/uiu_regularized_modal_solver_grouped_resplit_v1/bec_finetune/MACELES-uiu-jarvis-bec-ft-best.model",
+    "split_dir": "results/uiu_regularized_modal_solver_grouped_resplit_v1/splits",
+    "dfpt_cache": "results/jarvis_dfpt_internal_response/jarvis_dfpt_internal_response.pt",
+    "quality_summary": "results/jarvis_dfpt_internal_response/quality_summary.tsv",
+    "outdir": "results/uiu_regularized_modal_solver_grouped_resplit_v1/physical_polarization",
+    "device": "cuda:0",
+    "seed": 123,
+    "epochs": 60,
+    "patience": 15,
+    "batch_size": 64,
+    "loader_workers": 0,
+    "lr": 0.002,
+    "weight_decay": 1e-05,
+    "scalar_channels": 32,
+    "vector_channels": 16,
+    "tensor_channels": 16,
+    "charge_scale": 0.1,
+    "dipole_scale": 0.1,
+    "huber_beta": 0.2,
+    "lambda_bec": 1.0,
+    "lambda_static": 1.0,
+    "lambda_ionic": 0.5,
+    "lambda_total": 1.0,
+    "lambda_bec_cosine": 0.1,
+    "max_reconstruction_mae": 0.01,
+    "allow_unstable_hessian": false,
+    "max_train": null,
+    "max_valid": null,
+    "max_test": null,
+    "skip_test": false,
+    "resume": null
+  }
+}

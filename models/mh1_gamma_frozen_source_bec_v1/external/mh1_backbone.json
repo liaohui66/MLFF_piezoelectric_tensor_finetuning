@@ -1,0 +1,11 @@
+{
+  "name": "MACE-MH-1",
+  "head": "omat_pbe",
+  "upstream_repository": "https://github.com/ACEsuit/mace-foundations",
+  "download_url": "https://github.com/ACEsuit/mace-foundations/releases/download/mace_mh_1/mace-mh-1.model",
+  "local_filename": "mace-mh-1.model",
+  "expected_sha256": "ec00a2705854622fbbd898ccfb7701072fcd674709102d009fb919c1b8cc5dde",
+  "license": "Academic Software License (ASL); academic non-commercial use unless separately licensed",
+  "license_url": "https://github.com/gabor1/ASL/blob/main/ASL.md",
+  "note": "This upstream artifact is required by the Γ head and is not mirrored in this repository. Review and accept upstream terms before downloading or using it."
+}
